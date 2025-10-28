@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saint_roche_atomic_design/commons/styles/colors.dart';
 
 class UltraAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String appBarName;
@@ -20,7 +21,7 @@ class UltraAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
-      backgroundColor: Color(0xFF0F9D58),
+      backgroundColor: UltraColors.primary,
       elevation: 4,
       shadowColor: Colors.green,
     );
