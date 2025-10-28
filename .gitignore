@@ -45,3 +45,16 @@ app.*.map.json
 /android/app/release
 
 node_modules/
+
+# Latex Builds
+docs/build/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
