@@ -16,11 +16,31 @@ class Home extends StatelessWidget {
         mainAxisSpacing: 40,
         crossAxisCount: 2,
         children: <Widget>[
-          HomeButton(icon: Icons.home, title: "Vuelto"),
-          HomeButton(icon: Icons.home, title: "Hie"),
-          HomeButton(icon: Icons.home, title: "Hie"),
-          HomeButton(icon: Icons.home, title: "Hie"),
-          HomeButton(icon: Icons.home, title: "Hie"),
+          HomeButton(
+              icon: Icons.account_balance_wallet_rounded,
+              title: "Factura",
+              onClick: () => Navigator.pushNamed(context, '/'),
+          ),
+          HomeButton(
+            icon: Icons.home,
+            title: "Prob2",
+            onClick:  () => Navigator.pushNamed(context, '/'),
+          ),
+          HomeButton(
+            icon: Icons.home,
+            title: "Prob3",
+            onClick: () => Navigator.pushNamed(context, '/'),
+          ),
+          HomeButton(
+            icon: Icons.home,
+            title: "Prob4",
+            onClick:  () => Navigator.pushNamed(context, '/'),
+          ),
+          HomeButton(
+            icon: Icons.home,
+            title: "Prob5",
+            onClick:  () => Navigator.pushNamed(context, '/'),
+          ),
         ],
       ),
     );
