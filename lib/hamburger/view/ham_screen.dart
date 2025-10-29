@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saint_roche_atomic_design/hamburger/widgets/counter.dart';
 import '../../commons/widgets/ultra_app_bar.dart';
 
 class HamburgerScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _HamburgerScreenState extends State<HamburgerScreen> {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-
+            Counter(),
             SizedBox(height: 12,),
           ],
         ),
