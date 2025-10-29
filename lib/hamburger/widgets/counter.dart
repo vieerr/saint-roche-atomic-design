@@ -1,29 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:saint_roche_atomic_design/hamburger/widgets/counter_button.dart';
 
-class Counter extends StatefulWidget {
-  const Counter({super.key});
+class Counter extends StatelessWidget {
+  final VoidCallback onIncrement;
+  final VoidCallback onDecrement;
+  final int count;
 
-  @override
-  State<Counter> createState() => _CounterState();
-}
-
-class _CounterState extends State<Counter> {
-  int count = 0;
-
-  void _incrementCount() {
-    setState(() {
-      count++;
-    });
-  }
-
-  void _decrementCount() {
-    setState(() {
-      if (count > 0) {
-        count--;
-      }
-    });
-  }
+  const Counter({
+    super.key,
+    required this.count,
+    required this.onIncrement,
+    required this.onDecrement,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +20,9 @@ class _CounterState extends State<Counter> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CounterButton(
-            onClick: _decrementCount,
-            buttonColor: Colors.red,
-            icon: Icons.remove,
+          onClick: onDecrement,
+          buttonColor: Colors.red,
+          icon: Icons.remove,
         ),
 
         SizedBox(width: 15),
@@ -65,7 +53,7 @@ class _CounterState extends State<Counter> {
         SizedBox(width: 15),
 
         CounterButton(
-          onClick: _incrementCount,
+          onClick: onIncrement,
           buttonColor: Colors.green,
           icon: Icons.add,
         ),

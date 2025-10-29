@@ -5,17 +5,26 @@ import 'package:saint_roche_atomic_design/hamburger/widgets/hamburger_card.dart'
 class HamburgerSelector extends StatelessWidget {
   final String price;
   final String name;
+  final int count;
+  final IconData icon;
+  final VoidCallback onIncrement;
+  final VoidCallback onDecrement;
+
   const HamburgerSelector({
     super.key,
     required this.price,
     required this.name,
+    required this.count,
+    required this.icon,
+    required this.onIncrement,
+    required this.onDecrement,
   });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        HamburgerCard(icon: Icons.wallet, price: "\$$price"),
+        HamburgerCard(icon: icon, price: "\$$price"),
         SizedBox(width: 16),
         Column(
           children: [
@@ -28,7 +37,11 @@ class HamburgerSelector extends StatelessWidget {
               ),
             ),
             SizedBox(height: 8,),
-            Counter(),
+            Counter(
+              count: count,
+              onIncrement: onIncrement,
+              onDecrement: onDecrement,
+            ),
           ],
         ),
       ],
