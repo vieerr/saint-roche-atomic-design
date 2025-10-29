@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:saint_roche_atomic_design/bill/view/bill_result_screen.dart';
+import 'package:saint_roche_atomic_design/bill/view/bill_screen.dart';
 import 'package:saint_roche_atomic_design/home.dart';
 
 void main() {
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => const Home(),
+        '/bill': (context) => const BillScreen(),
+        '/bill/result': (context) => const BillResultScreen(),
       },
       initialRoute: '/',
     );

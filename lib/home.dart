@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
           HomeButton(
               icon: Icons.account_balance_wallet_rounded,
               title: "Factura",
-              onClick: () => Navigator.pushNamed(context, '/'),
+              onClick: () => Navigator.pushNamed(context, '/bill'),
           ),
           HomeButton(
             icon: Icons.home,
