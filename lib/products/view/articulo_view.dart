@@ -23,7 +23,6 @@ class _ArticuloViewState extends State<ArticuloView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const UltraAppBar(appBarName: 'Cálculo de Promociones'),
-      backgroundColor: UltraColors.primaryLight.withValues(alpha: 0.1),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

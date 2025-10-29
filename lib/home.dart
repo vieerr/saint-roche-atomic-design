@@ -32,14 +32,14 @@ class Home extends StatelessWidget {
             onClick: () => Navigator.pushNamed(context, '/'),
           ),
           HomeButton(
+            icon: Icons.home,
+            title: "Prob4",
+            onClick:  () => Navigator.pushNamed(context, '/'),
+          ),
+          HomeButton(
             icon: Icons.calculate_rounded,
             title: "Promociones",
             onClick:  () => Navigator.pushNamed(context, '/products'),
-          ),
-          HomeButton(
-            icon: Icons.home,
-            title: "Prob5",
-            onClick:  () => Navigator.pushNamed(context, '/'),
           ),
         ],
       ),
