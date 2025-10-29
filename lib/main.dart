@@ -22,6 +22,10 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Home(),
         '/bill': (context) => const BillScreen(),
         '/bill/result': (context) => const BillResultScreen(),
+        '/products': (context) => Placeholder(),
+        '/teacher': (context) => Placeholder(),
+        '/numbers': (context) => Placeholder(),
+        '/hamburger': (context) => Placeholder(),
       },
       initialRoute: '/',
     );
