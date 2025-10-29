@@ -5,6 +5,10 @@ module.exports = {
     'home',
     'docs',
     'bill',
+    'products',
+    'hamburger',
+    'teacher',
+    'numbers',
   ],
   maxMessageLength: 100,
 }
