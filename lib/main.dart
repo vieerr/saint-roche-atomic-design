@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:saint_roche_atomic_design/bill/view/bill_result_screen.dart';
 import 'package:saint_roche_atomic_design/bill/view/bill_screen.dart';
+import 'package:saint_roche_atomic_design/hamburger/view/ham_screen.dart';
 import 'package:saint_roche_atomic_design/home.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         '/products': (context) => Placeholder(),
         '/teacher': (context) => Placeholder(),
         '/numbers': (context) => Placeholder(),
-        '/hamburger': (context) => Placeholder(),
+        '/hamburger': (context) => HamburgerScreen(),
       },
       initialRoute: '/',
     );
