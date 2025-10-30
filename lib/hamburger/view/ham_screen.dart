@@ -19,9 +19,9 @@ class _HamburgerScreenState extends State<HamburgerScreen> {
   List<HamType> hamSelected = [];
   bool _isCreditCardPayment = false;
 
-  final hamCtrl = HamburgerController();
-
   void _getSelected() {
+    hamSelected.clear();
+
     for(int i=0; i<hamQty.length;i++){
       int j = hamQty[i];
       while(j>0){
@@ -29,7 +29,20 @@ class _HamburgerScreenState extends State<HamburgerScreen> {
         j--;
       }
     }
-    final total = hamCtrl.calcularPago(hamSelected, _isCreditCardPayment);
+    final hamMdl = HamburgerModel(hamSelected);
+    final hamCtrl = HamburgerController(hamMdl);
+
+    final total = hamCtrl.calcularPago(_isCreditCardPayment);
+    final extra = hamCtrl.calcularCargo(_isCreditCardPayment);
+
+    Navigator.pushNamed(
+        context, "/hamburger/result",
+        arguments: {
+          'total': total,
+          'cargo': extra,
+          'hamburgesas': hamSelected,
+        }
+    );
   }
 
   void _incrementQty(int index) {
