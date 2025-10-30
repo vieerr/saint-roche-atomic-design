@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:saint_roche_atomic_design/hamburger/model/ham_model.dart';
 import 'package:saint_roche_atomic_design/hamburger/widgets/counter.dart';
 import 'package:saint_roche_atomic_design/hamburger/widgets/hamburger_card.dart';
 
 class HamburgerSelector extends StatelessWidget {
-  final String price;
-  final String name;
-  final int count;
+  final HamburgerModel hamItem;
   final IconData icon;
   final VoidCallback onIncrement;
   final VoidCallback onDecrement;
 
   const HamburgerSelector({
     super.key,
-    required this.price,
-    required this.name,
-    required this.count,
+    required this.hamItem,
     required this.icon,
     required this.onIncrement,
     required this.onDecrement,
@@ -24,12 +21,12 @@ class HamburgerSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        HamburgerCard(icon: icon, price: "\$$price"),
+        HamburgerCard(icon: icon, price: "\$${hamItem.hamburger.price}"),
         SizedBox(width: 16),
         Column(
           children: [
             Text(
-              name,
+              hamItem.hamburger.name,
               style: const TextStyle(
                 fontSize: 32,
                 color: Colors.black,
@@ -38,7 +35,7 @@ class HamburgerSelector extends StatelessWidget {
             ),
             SizedBox(height: 8,),
             Counter(
-              count: count,
+              count: hamItem.quantity,
               onIncrement: onIncrement,
               onDecrement: onDecrement,
             ),

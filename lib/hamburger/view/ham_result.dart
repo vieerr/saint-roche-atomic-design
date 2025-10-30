@@ -12,9 +12,8 @@ class HamburgerResult extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
 
     final double total = args['total']!;
-    final double cargo = args['cargo']!;
-    final List<HamType> hamburguesas = args['hamburgesas']!;
-
+    final double recargo = args['recargo']!;
+    final List<HamburgerModel> hamburguesas = args['hamburgesas']!;
 
     return Scaffold(
       appBar: UltraAppBar(appBarName: "Cuenta"),
@@ -42,15 +41,21 @@ class HamburgerResult extends StatelessWidget {
 
               Divider(height: 24),
 
-              FacturaDetailRow(
-                label: "Sencillas x 2",
-                value: "\$${total.toStringAsFixed(2)}",
-              ),
-              SizedBox(height: 12),
+              for (var ham in hamburguesas) ...[
+                if(ham.quantity > 0) ...[
+                  FacturaDetailRow(
+                    label: "${ham.hamburger.name} x ${ham.quantity}",
+                    value: "\$${ham.total.toStringAsFixed(2)}",
+                  ),
+                  SizedBox(height: 12,),
+                ],
+              ],
 
+              Divider(height: 12),
               FacturaDetailRow(
-                label: "Cargo Aplicado",
-                value: "\$${cargo.toStringAsFixed(2)}",
+                label: "Recargo Aplicado",
+                value: "\$${recargo.toStringAsFixed(2)}",
+                valueColor: Colors.blueAccent,
               ),
 
               Divider(height: 24),
@@ -67,7 +72,7 @@ class HamburgerResult extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "\$$total",
+                    "\$${total + recargo}",
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saint_roche_atomic_design/commons/widgets/error_mesage.dart';
 import 'package:saint_roche_atomic_design/commons/widgets/ultra_button.dart';
 import 'package:saint_roche_atomic_design/hamburger/controller/ham_controller.dart';
 import 'package:saint_roche_atomic_design/hamburger/widgets/hamburger_checkbox.dart';
@@ -14,48 +15,43 @@ class HamburgerScreen extends StatefulWidget {
 }
 
 class _HamburgerScreenState extends State<HamburgerScreen> {
-  List<int> hamQty = [0,0,0];
-  List<HamType> hamTypes = HamType.values.toList();
-  List<HamType> hamSelected = [];
+  final hamCtrl = HamburgerController();
   bool _isCreditCardPayment = false;
+  String _errMsg = "";
 
-  void _getSelected() {
-    hamSelected.clear();
+  void _computeAllHamburgers() {
+    setState(() {
+      _errMsg = hamCtrl.allHamburgersZero();
+    });
 
-    for(int i=0; i<hamQty.length;i++){
-      int j = hamQty[i];
-      while(j>0){
-        hamSelected.add(hamTypes[i]);
-        j--;
-      }
+    if(_errMsg != "") {
+      return;
     }
-    final hamMdl = HamburgerModel(hamSelected);
-    final hamCtrl = HamburgerController(hamMdl);
 
-    final total = hamCtrl.calcularPago(_isCreditCardPayment);
-    final extra = hamCtrl.calcularCargo(_isCreditCardPayment);
+    double charge = 0;
+    if(_isCreditCardPayment){
+      charge = hamCtrl.charge;
+    }
 
     Navigator.pushNamed(
-        context, "/hamburger/result",
-        arguments: {
-          'total': total,
-          'cargo': extra,
-          'hamburgesas': hamSelected,
-        }
+      context, "/hamburger/result",
+      arguments: {
+        'total': hamCtrl.total,
+        'recargo': charge,
+        'hamburgesas': hamCtrl.hamburgers,
+      }
     );
   }
 
-  void _incrementQty(int index) {
+  void _incrementQty(HamburgerModel hamburger) {
     setState(() {
-      hamQty[index]++;
+      hamCtrl.increaseQty(hamburger);
     });
   }
 
-  void _decrementQty(int index) {
+  void _decrementQty(HamburgerModel hamburger) {
     setState(() {
-      if(hamQty[index] > 0) {
-        hamQty[index]--;
-      }
+      hamCtrl.decreaseQty(hamburger);
     });
   }
 
@@ -67,14 +63,12 @@ class _HamburgerScreenState extends State<HamburgerScreen> {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            for (int i = 0; i < hamQty.length; i++) ...[
+            for (int i = 0; i < hamCtrl.hamburgers.length; i++) ...[
               HamburgerSelector(
-                price: "${hamTypes[i].precio}",
-                name: hamTypes[i].nombre,
-                count: hamQty[i],
+                hamItem: hamCtrl.hamburgers[i],
                 icon: Icons.wallet,
-                onIncrement: () => _incrementQty(i),
-                onDecrement: () => _decrementQty(i),
+                onIncrement: () => _incrementQty(hamCtrl.hamburgers[i]),
+                onDecrement: () => _decrementQty(hamCtrl.hamburgers[i]),
               ),
               SizedBox(height: 12,),
             ],
@@ -92,7 +86,9 @@ class _HamburgerScreenState extends State<HamburgerScreen> {
               },
             ),
             SizedBox(height: 16,),
-            UltraButton(label: "Calcular Total", onPressed: _getSelected),
+            UltraButton(label: "Calcular Total", onPressed: _computeAllHamburgers),
+            SizedBox(height: 16,),
+            ErrorMessage(errorText: _errMsg,),
           ],
         ),
       ),
