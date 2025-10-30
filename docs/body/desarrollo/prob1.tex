@@ -2,6 +2,8 @@
 
 \textit {“Desarrollo y explicación de problema 1 “Indicaciones al ejercicio en clase calcular el iva de 15\%, si las compras superan \textdollar2000 al cliente se agregar un descuento del 20\%, mostrar tanto el sueldo a ganar del vendedor y la factura de la venta de productos.”}
 
+\textbf{Modelo}
+
 Para desarrollar este ejercicio, se tienen 3 métodos en la clase del modelo.
 
 \begin{center}
@@ -26,6 +28,8 @@ Para desarrollar este ejercicio, se tienen 3 métodos en la clase del modelo.
 
 Las variables \lstinline{venta1}, \lstinline{venta2} y \lstinline{venta3} son atributos de la clase modal. Estas permiten obtener los valores del total de las ventas, un descuento si las ventas totales supera los \textdollar2000 y el sueldo del trabajador más su comisión del 12\% por cada venta.
 
+\textbf{Controlador}
+
 El controlador, toma este modelo y realiza las validaciones de texto correspondientes antes de ejecutar acciones sobre las variables numéricas de las ventas. En este método se retorna los valores respecto al total de las ventas, sueldo, descuento y el mensaje de error (en caso de haberlo).
 
 \begin{center}
@@ -37,6 +41,8 @@ El controlador, toma este modelo y realiza las validaciones de texto correspondi
    return (billModel.totalVentas, sueldo, descuento, "");
 \end{lstlisting}
 \end{center}
+
+\textbf{Vistas}
 
 Dentro de la vista, una vez que se presiona el botón de calcular, se utiliza el controlador para mostrar obtener los resultados o los errores antes de realizar la acción. En caso de que todo fluya con normalidad, se pasan los datos a la ruta de resultados para mostrar los resultados en una nueva pantalla.
 
@@ -85,6 +91,8 @@ Puesto que se mandaron argumentos en forma de clave valor, se realizaron colocar
   }
 \end{lstlisting}
 \end{center}
+
+\textbf{Ejecución}
 
 De esta manera se pudo cumplir con el ejercicio propuesto, donde se toman 3 valores y con ellos se realizan varios cálculos mostrados en la siguiente pantalla:
 
