@@ -116,6 +116,46 @@ El proyecto se encuentra cargado en el siguiente repositorio de GitHub:
 
 \href{https://github.com/vieerr/saint-roche-atomic-design}{\color{blue}\underline{https://github.com/vieerr/saint-roche-atomic-design}}
 
+\subsection{Estrucutra de proyecto}
+
+El archivo raiz del proyecto \lstinline{main.dart} se compone de las siguientes rutas con sus respectivas vistas:
+
+\begin{center}
+\begin{lstlisting}
+routes: {
+  '/': (context) => const Home(),
+  '/bill': (context) => const BillScreen(),
+  '/bill/result': (context) => const BillResultScreen(),
+  '/products': (context) => ArticuloView(),
+  '/teacher': (context) => TeacherView(),
+  '/numbers': (context) => NumbersView(),
+  '/hamburger': (context) => HamburgerScreen(),
+  '/hamburger/result': (context) => HamburgerResult(),
+},
+\end{lstlisting}
+\end{center}
+
+Para cada ejericio, se implementó el patrón MCV, por lo que se cuentan con las siguientes carpetas:
+
+\begin{itemize}
+    \item Controller
+    \item Model
+    \item View
+    \item Widgets
+\end{itemize}
+
+El directorio de “widgets” es exclusivo para cada ejercicio, con componentes (widgets) específicos para implementar el ejercicio, aunque en algunos casos ciertos componentes se pueden compartir entre otros ejercicios.
+
+Por ello, se cuenta con una carpeta general llamada \textbf{“commons”} en la que se colocan diversos componentes genéricos que pueden ser utilizados/compartidos por diferentes vistas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4 \textwidth, height=6cm, keepaspectratio]{estructura_proyecto.png}
+    \caption{Estructura general de proyecto}
+    \label{fig:estructura_proyecto}
+\end{figure}
+
+
 \input{body/desarrollo/prob1.tex}
 \input{body/desarrollo/prob2.tex}
 \input{body/desarrollo/prob3.tex}
