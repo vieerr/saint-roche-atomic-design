@@ -13,5 +13,67 @@ Sus fundamentos se basan en las siguientes estructuras:
 
 \textbf{Páginas:} Esta es el nivel final, donde toma como base una plantilla y luego se la llena con contenido real para así presentarla al usuario.
 
-\subsection{Navegación en Flutter}
+\subsection{Navegación básica en Flutter}
 
+La principal clase encargada de la navegación el Flutter es \lstinline{Navigation}. Esta se basa en una pila de rutas en donde cada pantalla se coloca sobre la anterior, lo que provoca que el usuario pueda regresar entre pantallas en la misma secuencia en la que se abrieron \parencite{Grados2023}. Esta clase tiene diferentes métodos para controlar la pila:
+
+
+\begin{itemize}
+    \item \textbf{Push():} Se utiliza para agregar una nueva pantalla en la parte superior de la pila. En esta se le pasa el contexto actual antes de montar la nueva pantalla encima. 
+    
+    \item \textbf{Pop():} Se utiliza para retroceder a la pantalla anterior, es decir, quitar un elemento de la pila de navegación. La pantalla a la que se regrese dependerá del contexto que se le haya suministrado.
+\end{itemize}
+
+\subsection{Navegación por nombre}
+
+Una manera más cómoda de moverse entre rutas es mediante el método \lstinline{.pushNamed()}, en el cual se define con anterioridad una serie de rutas y sus respectivas pantallas (widgets) en la pantalla Main de la aplicación.
+
+\begin{center}
+\begin{lstlisting}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Aplicación navigator',
+      initialRoute: "/",
+      routes: {
+        "/": (context) => Home(),
+        "/view1": (context) => View1(),
+        "/view2": (context) => View2(),
+      },
+    );
+  }
+}
+\end{lstlisting}
+\end{center}
+
+Se pueden definir cuantas rutas y vistas sean necesarias, cuando se necesite llamar a una pantalla en específico en otra parte, solo se tendrá que colocar:
+
+\begin{center}
+\begin{lstlisting}
+  Navigator.pushNamed(context, "/view1");
+\end{lstlisting}
+\end{center}
+
+\subsection{Navegación con argumentos}
+
+Cuando se hace un cambio de pantalla, es posible mandar datos mientras esto ocurre. Estos datos o “argumentos”, pueden pasarse de diversas maneras, si se utiliza el método tradicional se tiene que agregar los campos de argumentos dentro del constructor de la vista. Por eso, es mejor utilizar argumentos cuando se hace \lstinline{.pushNamed()}.
+
+\begin{center}
+\begin{lstlisting}
+  Navigator.pushNamed(context, "/view2",
+    arguments: {object});
+\end{lstlisting}
+\end{center}
+
+El campo de \lstinline{arguments} puede ser de cualquier tipo de objeto, desde un simple \lstinline{String} hasta un objeto más complejo, como un \lstinline{Map$<>$} si se quisiera mandar datos de manera más estructurada.
+
+Para que la vista pueda recuperar los datos que se le pasaron, es necesario deesctruturarlos de una forma mucho más legible. Para ello se utiliza:
+
+\begin{center}
+\begin{lstlisting}
+  ModalRoute.of(context)!.settings.arguments
+\end{lstlisting}
+\end{center}
+
+Es necesario agregar \lstinline{as Type} luego de dicha linea, para que el argumento sea tomado correctamente. Para ello es recomendable mostrar explícitamente el tipo de argumento que se obtiene con tipos de datos específicos como \lstinline{String}, \lstinline{int} o \lstinline{Map$<>$}, tratando de evitar usar \lstinline{dynamic}.
