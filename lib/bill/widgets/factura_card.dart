@@ -90,32 +90,3 @@ class FacturaCard extends StatelessWidget {
     );
   }
 }
-
-// Widget reutilizable para filas de detalle
-Widget _buildDetailRow({
-  required IconData icon,
-  required String label,
-  required String value,
-  Color? valueColor,
-}) {
-  return Row(
-    children: [
-      Icon(icon, size: 20, color: Colors.indigo.shade400),
-      const SizedBox(width: 12),
-      Expanded(
-        child: Text(
-          label,
-          style: const TextStyle(fontSize: 16, color: Colors.black87),
-        ),
-      ),
-      Text(
-        value,
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: valueColor ?? Colors.black87,
-        ),
-      ),
-    ],
-  );
-}
