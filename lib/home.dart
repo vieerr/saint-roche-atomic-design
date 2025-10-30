@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
             onClick:  () => Navigator.pushNamed(context, '/'),
           ),
           HomeButton(
-            icon: Icons.home,
+            icon: Icons.fastfood,
             title: "Hamburguesa",
             onClick: () => Navigator.pushNamed(context, '/hamburger'),
           ),

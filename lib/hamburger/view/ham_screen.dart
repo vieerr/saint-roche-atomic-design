@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saint_roche_atomic_design/commons/widgets/error_mesage.dart';
 import 'package:saint_roche_atomic_design/commons/widgets/ultra_button.dart';
 import 'package:saint_roche_atomic_design/hamburger/controller/ham_controller.dart';
@@ -66,12 +67,17 @@ class _HamburgerScreenState extends State<HamburgerScreen> {
             for (int i = 0; i < hamCtrl.hamburgers.length; i++) ...[
               HamburgerSelector(
                 hamItem: hamCtrl.hamburgers[i],
-                icon: Icons.wallet,
+                icon: FaIcon(
+                  FontAwesomeIcons.burger,
+                  size: 48,
+                  color: Colors.white,
+                ),
                 onIncrement: () => _incrementQty(hamCtrl.hamburgers[i]),
                 onDecrement: () => _decrementQty(hamCtrl.hamburgers[i]),
               ),
               SizedBox(height: 12,),
             ],
+
             SizedBox(height: 16,),
             HamburgerCheckbox(
               label: "Pagar con tarjeta de crédito",

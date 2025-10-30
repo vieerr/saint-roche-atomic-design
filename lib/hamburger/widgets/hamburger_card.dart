@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saint_roche_atomic_design/commons/styles/colors.dart';
 
 class HamburgerCard extends StatelessWidget {
-  final IconData icon;
+  final FaIcon icon;
   final String price;
 
   const HamburgerCard({
@@ -30,11 +31,7 @@ class HamburgerCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Icon(
-              icon,
-              size: 48,
-              color: Colors.white,
-            ),
+            icon,
             SizedBox(height: 12),
              Text(
                price,

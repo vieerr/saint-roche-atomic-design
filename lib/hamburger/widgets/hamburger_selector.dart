@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saint_roche_atomic_design/hamburger/model/ham_model.dart';
 import 'package:saint_roche_atomic_design/hamburger/widgets/counter.dart';
 import 'package:saint_roche_atomic_design/hamburger/widgets/hamburger_card.dart';
 
 class HamburgerSelector extends StatelessWidget {
   final HamburgerModel hamItem;
-  final IconData icon;
+  final FaIcon icon;
   final VoidCallback onIncrement;
   final VoidCallback onDecrement;
 
