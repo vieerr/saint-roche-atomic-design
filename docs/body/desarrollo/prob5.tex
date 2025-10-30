@@ -2,19 +2,9 @@
 
 \textit {“Realice un algoritmo para determinar cuánto pagará una persona que adquiere N artículos, los cuales están de promoción. Considere que si su precio es mayor o igual a \$200 se le aplica un descuento de 15\%, y si su precio es mayor a \$100 pero menor a \$200, el descuento es de 12\%; de lo contrario, sólo se le aplica 10\%. Se debe saber cuál es el costo y el descuento que tendrá cada uno de los artículos y finalmente cuánto se pagará por todos los artículos obtenidos.”}
 
-\textbf{Paso 1: Definición de arquitectura y metodología}
+\textbf{Paso 1: Creación de archivos y definición de modelos}
 
-Primero para el desarrollo del problema se creo una arquitectura MVC considerando que se va a utilizar una metodología de atomic design para esto se crearon 4 carpetas las cuales son:
-\begin{itemize}
-    \item Controller
-    \item Model
-    \item View
-    \item Widgets
-\end{itemize}
-
-\textbf{Paso 2: Creación de archivos y definición de modelos}
-
-Con esta estructura creada se crearon diferentes archivos .dart para la solución del problema dentro de los archivos se crearon: 
+Se crearon diferentes archivos .dart para la solución del problema dentro de los archivos se crearon: 
 \begin{itemize}
     \item articulo\_controller.dart
     \item articulo\_model.dart
@@ -71,10 +61,10 @@ El archivo se creo con el propósito de poder dibujar una Tarjeta que permita mo
 
 \textbf{articulo\_view.dart}
 
-Por ultimo en el archivo, aquí es donde se unen los códigos anteriores, para poder crear la interfaz final que se va a mostrar al usuario final dentro de este archivo se crea un StatefulWidget, la cual permite hacer una actualización cada ves que se ingresa un nuevo producto, de forma general tiene cuatro partes importantes, la Entrada de datos el cual muestra un campo de texto con un UltraInput para poder ingresar el precio y también muestra el botón para agregar y limpiar artículos, después se tiene la lista de artículos que es la parte principal esta revisa los artículos del controller y si no se tiene artículos se muestra el mensaje "No hay artículos agregados", pero si la lista tiene artículos se usa un ListView.builder para crear un ArticuloCard por cada uno de los artículos que se tenga en la lista del controlador, otra parte importante de la View es el Resumen total el cual llama de forma constante a controlle.calcularTotal que muestra el total a pagar por cada articulo agregado, este valor se actualiza, y por ultimo se tiene una gestión de estados y de lógica de forma resumida se crea una instancia de ArticuloController la cual se usa para guardar el estado de la aplicación, también se tiene la lógica del botón agregar en la cual se valida que el numero sea valido caso contrario mostrara un error y si es valido se llama a controller.agregarArticulo, también se tiene la lógica del botón de limpiar para poder eliminar los artículos de la lista, algo importante dentro de la lógica de los botones es el setState la cual cada ves que se presiona se vuelve a graficar la pantalla o se actualiza para poder mostrar los artículos actualizados tanto si se limpiaron o si se agregaron.
+Por ultimo en el archivo, aquí es donde se unen los códigos anteriores, para poder crear la interfaz final que se va a mostrar al usuario final dentro de este archivo se crea un StatefulWidget, la cual permite hacer una actualización cada ves que se ingresa un nuevo producto, de forma general tiene cuatro partes importantes, la Entrada de datos el cual muestra un campo de texto con un UltraInput para poder ingresar el precio y también muestra el botón para agregar y limpiar artículos, después se tiene la lista de artículos que es la parte principal esta revisa los artículos del controller y si no se tiene artículos se muestra el mensaje “No hay artículos agregados”, pero si la lista tiene artículos se usa un ListView.builder para crear un ArticuloCard por cada uno de los artículos que se tenga en la lista del controlador, otra parte importante de la View es el Resumen total el cual llama de forma constante a controlle.calcularTotal que muestra el total a pagar por cada articulo agregado, este valor se actualiza, y por ultimo se tiene una gestión de estados y de lógica de forma resumida se crea una instancia de ArticuloController la cual se usa para guardar el estado de la aplicación, también se tiene la lógica del botón agregar en la cual se valida que el numero sea valido caso contrario mostrara un error y si es valido se llama a controller.agregarArticulo, también se tiene la lógica del botón de limpiar para poder eliminar los artículos de la lista, algo importante dentro de la lógica de los botones es el setState la cual cada ves que se presiona se vuelve a graficar la pantalla o se actualiza para poder mostrar los artículos actualizados tanto si se limpiaron o si se agregaron.
 
 
-\textbf{Paso 3: Integración en la aplicación}
+\textbf{Paso 4: Integración en la aplicación}
 
 Una ves que se programo una solución utilizando la metodologia atomic design y el patron MVC para el problema se procedio a instanciar en el main.dart y en el home.dart que permiten la navegación entre los programas y también mostrar el la plantilla que se creo. 
 
@@ -97,6 +87,13 @@ onClick:  () => Navigator.pushNamed(context, '/products'),
 \end{lstlisting}
 \end{center}
 
-\textbf{Paso 4: Pruebas y verificación}
+\textbf{Paso 5: Pruebas y verificación}
 
-Por ultimo para verificar el funcionamiento se ejecuto en el navegador y se realizaron algunas pruebas ingresando diferentes valores 250 - 150 - 100 - 50 y al final todos los resultados fueron correctos.
+Por ultimo para verificar el funcionamiento se realizaron algunas pruebas ingresando diferentes valores 250 - 150 - 100 - 50 y al final todos los resultados fueron correctos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6 \textwidth, height=8cm, keepaspectratio]{ejecucion_ej5.png}
+    \caption{Verificación ejercicio 5}
+    \label{fig:ej5_ejecuccion}
+\end{figure}
