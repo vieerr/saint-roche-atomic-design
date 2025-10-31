@@ -22,9 +22,9 @@ class Home extends StatelessWidget {
               onClick: () => Navigator.pushNamed(context, '/bill'),
           ),
           HomeButton(
-            icon: Icons.home,
-            title: "Prob2",
-            onClick:  () => Navigator.pushNamed(context, '/'),
+            icon: Icons.account_box_rounded,
+            title: "Profesores",
+            onClick:  () => Navigator.pushNamed(context, '/teacher'),
           ),
           HomeButton(
             icon: Icons.fastfood,
