@@ -50,11 +50,11 @@ Fecha de entrega: & 31 de octubre de 2025 \\
 
 \section{Introducción}
 
-Párrafo 1: Introducción al tema
+El siguiente informe presenta el desarrollo de 5 aplicaciones simples con validación básica, las cuales pueden ser ejecutadas mediante una pantalla de navegación principal. Por tal motivo, cada una de las aplicaciones hace uso de distintas pantallas, métodos de navegación y diferentes componentes visuales (widgets) para ejecutar su funcionalidad.
 
-Párrafo 2:  hablar de herramientas
+Para el desarrollo de cada uno de los ejercicios propuestos, se aplicó el patrón MVC. También se implementaron widgets reutilizables al basarse en Atomic Design, para lograr tener un diseño consistente por toda la aplicación. Adicionalmente, se agregó la librería de íconos “font awesome” para la implementación de elementos visuales variados en distintas pantallas. 
 
-Párrafo 3: especie de conclusión 
+Los 5 ejercicios realizados, permitieron familiarizarse con distintas maneras de manejar la navegación entre vistas, así como el paso de argumentos entre componentes padre e hijo. También, el patrón MVC permitió mantener una base de código limpia y modular para reutilizar distintos componentes entre cada una de las aplicaciones.
 
 \newpage
 
@@ -86,14 +86,14 @@ Párrafo 3: especie de conclusión
 
 \section{Objetivos}
 \subsection{Objetivo General}
-OBJECT
+Elaborar un proyecto donde se puedan ejecutar 5 programas distintos en un entorno móvil con Flutter, las cuales implementen un mecanismo de navegación entre vistas.
 
 \subsection{Objetivo Específicos}
-- OBJECT
+- Mantener cosistencia entre las vistas mediante el uso widgets reutilizables con esquemas de color predefinidos.
 
-- OBJECT
+- Hacer uso de estados para el manejo dinámico de la presentación de elementos visuales de la interfaz de usuario.
 
-- OBJECT
+- Implementar navegabilidad entre distintas vistas de la aplicación mediante NavigationNamded con argumentos.
 
 %===========================================================
 %===========================================================
@@ -115,6 +115,53 @@ OBJECT
 El proyecto se encuentra cargado en el siguiente repositorio de GitHub: 
 
 \href{https://github.com/vieerr/saint-roche-atomic-design}{\color{blue}\underline{https://github.com/vieerr/saint-roche-atomic-design}}
+
+\subsection{Estrucutra de proyecto}
+
+El archivo raiz del proyecto \lstinline{main.dart} se compone de las siguientes rutas con sus respectivas vistas:
+
+\begin{center}
+\begin{lstlisting}
+routes: {
+  '/': (context) => const Home(),
+  '/bill': (context) => const BillScreen(),
+  '/bill/result': (context) => const BillResultScreen(),
+  '/products': (context) => ArticuloView(),
+  '/teacher': (context) => TeacherView(),
+  '/numbers': (context) => NumbersView(),
+  '/hamburger': (context) => HamburgerScreen(),
+  '/hamburger/result': (context) => HamburgerResult(),
+},
+\end{lstlisting}
+\end{center}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7 \textwidth, height=9cm, keepaspectratio]{home_screen.png}
+    \caption{Pantalla de inicio}
+    \label{fig:home_screen}
+\end{figure}
+
+Para cada ejericio, se implementó el patrón MCV, por lo que se cuentan con las siguientes carpetas:
+
+\begin{itemize}
+    \item Controller
+    \item Model
+    \item View
+    \item Widgets
+\end{itemize}
+
+El directorio de “widgets” es exclusivo para cada ejercicio, con componentes (widgets) específicos para implementar el ejercicio, aunque en algunos casos ciertos componentes se pueden compartir entre otros ejercicios.
+
+Por ello, se cuenta con una carpeta general llamada \textbf{“commons”} en la que se colocan diversos componentes genéricos que pueden ser utilizados/compartidos por diferentes vistas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4 \textwidth, height=6cm, keepaspectratio]{estructura_proyecto.png}
+    \caption{Estructura general de proyecto}
+    \label{fig:estructura_proyecto}
+\end{figure}
+
 
 \input{body/desarrollo/prob1.tex}
 \input{body/desarrollo/prob2.tex}
@@ -148,5 +195,12 @@ El proyecto se encuentra cargado en el siguiente repositorio de GitHub:
 %===========================================================
 
 \section{Anexos}
+
+\textbf{Manejo de errores}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8 \textwidth, height=10cm, keepaspectratio]{anexos/err_ejecucion.png}
+\end{figure}
 
 \end{document}
