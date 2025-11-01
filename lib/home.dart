@@ -19,17 +19,17 @@ class Home extends StatelessWidget {
           HomeButton(
               icon: Icons.account_balance_wallet_rounded,
               title: "Factura",
-              onClick: () => Navigator.pushNamed(context, '/'),
+              onClick: () => Navigator.pushNamed(context, '/bill'),
           ),
           HomeButton(
-            icon: Icons.home,
-            title: "Prob2",
-            onClick:  () => Navigator.pushNamed(context, '/'),
+            icon: Icons.account_box_rounded,
+            title: "Profesores",
+            onClick:  () => Navigator.pushNamed(context, '/teacher'),
           ),
           HomeButton(
-            icon: Icons.home,
-            title: "Prob3",
-            onClick: () => Navigator.pushNamed(context, '/'),
+            icon: Icons.fastfood,
+            title: "Hamburguesa",
+            onClick: () => Navigator.pushNamed(context, '/hamburger'),
           ),
           HomeButton(
             icon: Icons.home,
@@ -37,9 +37,9 @@ class Home extends StatelessWidget {
             onClick:  () => Navigator.pushNamed(context, '/'),
           ),
           HomeButton(
-            icon: Icons.home,
-            title: "Prob5",
-            onClick:  () => Navigator.pushNamed(context, '/'),
+            icon: Icons.calculate_rounded,
+            title: "Promociones",
+            onClick:  () => Navigator.pushNamed(context, '/products'),
           ),
         ],
       ),

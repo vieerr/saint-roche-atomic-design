@@ -3,7 +3,12 @@ module.exports = {
   scopes: [
     'config',
     'home',
-    'docs'
+    'docs',
+    'bill',
+    'products',
+    'hamburger',
+    'teacher',
+    'numbers',
   ],
   maxMessageLength: 100,
 }
