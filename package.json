@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "commit-numbers": "git-cz --scope numbers"
   },
   "keywords": [],
   "author": "",
