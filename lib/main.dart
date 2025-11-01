@@ -4,7 +4,11 @@ import 'package:saint_roche_atomic_design/bill/view/bill_screen.dart';
 import 'package:saint_roche_atomic_design/hamburger/view/ham_result.dart';
 import 'package:saint_roche_atomic_design/hamburger/view/ham_screen.dart';
 import 'package:saint_roche_atomic_design/home.dart';
+import 'package:saint_roche_atomic_design/numbers/view/numbers_result_screen.dart';
+import 'package:saint_roche_atomic_design/numbers/view/numbers_screen.dart';
 import 'package:saint_roche_atomic_design/products/view/articulo_view.dart';
+import 'package:saint_roche_atomic_design/teacher/view/result_view.dart';
+import 'package:saint_roche_atomic_design/teacher/view/salary_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,10 +30,12 @@ class MyApp extends StatelessWidget {
         '/bill': (context) => const BillScreen(),
         '/bill/result': (context) => const BillResultScreen(),
         '/products': (context) => const ArticuloView(),
-        '/teacher': (context) => Placeholder(),
-        '/numbers': (context) => Placeholder(),
+        '/teacher': (context) => const SalarioPage(),
+        '/numbers': (context) => const NumbersScreen(),
+        '/numbers/result': (context) => const NumbersResultScreen(),
         '/hamburger': (context) => HamburgerScreen(),
         '/hamburger/result': (context) => HamburgerResult(),
+        'teacher/result': (context) => ResultadoScreen(),
       },
       initialRoute: '/',
     );
