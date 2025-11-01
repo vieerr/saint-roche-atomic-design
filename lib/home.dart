@@ -17,14 +17,14 @@ class Home extends StatelessWidget {
         crossAxisCount: 2,
         children: <Widget>[
           HomeButton(
-              icon: Icons.account_balance_wallet_rounded,
-              title: "Factura",
-              onClick: () => Navigator.pushNamed(context, '/bill'),
+            icon: Icons.account_balance_wallet_rounded,
+            title: "Factura",
+            onClick: () => Navigator.pushNamed(context, '/bill'),
           ),
           HomeButton(
             icon: Icons.account_box_rounded,
             title: "Profesores",
-            onClick:  () => Navigator.pushNamed(context, '/teacher'),
+            onClick: () => Navigator.pushNamed(context, '/teacher'),
           ),
           HomeButton(
             icon: Icons.fastfood,
@@ -32,14 +32,14 @@ class Home extends StatelessWidget {
             onClick: () => Navigator.pushNamed(context, '/hamburger'),
           ),
           HomeButton(
-            icon: Icons.home,
-            title: "Prob4",
-            onClick:  () => Navigator.pushNamed(context, '/'),
+            icon: Icons.numbers,
+            title: "Números",
+            onClick: () => Navigator.pushNamed(context, '/numbers'),
           ),
           HomeButton(
             icon: Icons.calculate_rounded,
             title: "Promociones",
-            onClick:  () => Navigator.pushNamed(context, '/products'),
+            onClick: () => Navigator.pushNamed(context, '/products'),
           ),
         ],
       ),
